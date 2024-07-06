@@ -1670,6 +1670,35 @@
   resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-win32-x64/-/msgpackr-extract-win32-x64-3.0.3.tgz#0aa5502d547b57abfc4ac492de68e2006e417242"
   integrity sha512-x0fWaQtYp4E6sktbsdAqnehxDgEc/VwM7uLsRCYWaiGu0ykYdZPiS8zCWdnjHwyiumousxfBm4SO31eXqwEZhQ==
 
+"@ngrx/effects@^18.0.1":
+  version "18.0.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-18.0.1.tgz#09ed0b32dc2677eb634fa19c2a8125628e11ae61"
+  integrity sha512-ESxJYx31uABixtnWcuDY+HLKyqXKABpPG3LPDMyZrj7lIdjCaTk471QMhRZOme8QQKzlJt0drGfzFo3FM+QYuA==
+  dependencies:
+    "@ngrx/operators" "18.0.1"
+    tslib "^2.0.0"
+
+"@ngrx/operators@18.0.1":
+  version "18.0.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/operators/-/operators-18.0.1.tgz#fd127dce1bccb27824b77149fbb4f8b56d2ad8a9"
+  integrity sha512-M+QMrHNKgcuiLaRGZxJ4aQi5/OCRfKC4+T/63dsHyLFZ53/FFpF6a/ytSO1Q+tzOplZ5o99S+i8FVaZqNQ3LmQ==
+  dependencies:
+    tslib "^2.3.0"
+
+"@ngrx/store-devtools@^18.0.1":
+  version "18.0.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-18.0.1.tgz#aa968bb9a3979b2e911d5f5720edfff670d50869"
+  integrity sha512-necHUUcLd41mpObOSuyGQSVyDq4Tb+uejG16WmA6VwXufaUqEl385aumKiS1KLtUP8TQQzogaogaMMDtqtznsQ==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/store@^18.0.1":
+  version "18.0.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-18.0.1.tgz#61a6fcd06d1a219f2d4d135faea23f035008d6d8"
+  integrity sha512-TxZiQz06fGSxQ0clYfzkH4NCr6tfa8A7zqzkvvOOK1ZezOHHsk0vZJJtgxQcKUqAQxPpbp5+Z7YR8P/Fuid7GQ==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngtools/webpack@18.0.7":
   version "18.0.7"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-18.0.7.tgz#f3fcd6f060897c48e83d9b477a0c99d380a47420"
@@ -2534,6 +2563,11 @@ boolbase@^1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==
 
+bootstrap@^5.3.3:
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.3.3.tgz#de35e1a765c897ac940021900fcbb831602bac38"
+  integrity sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg==
+
 brace-expansion@^1.1.7:
   version "1.1.11"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
@@ -3057,6 +3091,11 @@ detect-node@^2.0.4:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.1.0.tgz#c9c70775a49c3d03bc2c06d9a73be550f978f8b1"
   integrity sha512-T0NIuQpnTvFDATNuHN5roPwSBG83rFsuO+MXXH9/3N1eFbn4wcPjttvjMLEPWJ0RGUYgQE7cGgS3tNxbqCGM7g==
+
+dexie@^4.0.7:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/dexie/-/dexie-4.0.7.tgz#c92e5032245fc075de58c636238a82ee3ff9fedb"
+  integrity sha512-M+Lo6rk4pekIfrc2T0o2tvVJwL6EAAM/B78DNfb8aaxFVoI1f8/rz5KTxuAnApkwqTSuxx7T5t0RKH7qprapGg==
 
 di@^0.0.1:
   version "0.0.1"
