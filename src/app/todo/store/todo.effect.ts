@@ -1,17 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import {
-  addTodoAction,
-  addTodoFailureAction,
-  addTodoSuccessAction,
-  getTodosAction,
-  getTodosFailureAction,
-  getTodosSuccessAction,
-  removeTodoAction,
-  removeTodoFailureAction,
-  removeTodoSuccessAction,
-} from './todo.action';
+import * as TodoActions from './todo.action';
 import { catchError, of, switchMap, map } from 'rxjs';
 import { TodoService } from '../services/todo.service';
 import { TodoInterface } from '../todo.model';
@@ -19,15 +9,15 @@ import { TodoInterface } from '../todo.model';
 export class TodoEffect {
   addTodo$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(addTodoAction),
+      ofType(TodoActions.addTodoAction),
       switchMap(({ todo }) => {
         return this.todoService.addTodo(todo).pipe(
           map(() => {
-            return addTodoSuccessAction();
+            return TodoActions.addTodoSuccessAction();
           }),
           catchError((e: Error) => {
             console.warn(e);
-            return of(addTodoFailureAction());
+            return of(TodoActions.addTodoFailureAction());
           }),
         );
       }),
@@ -36,15 +26,49 @@ export class TodoEffect {
 
   removeTodo$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(removeTodoAction),
+      ofType(TodoActions.removeTodoAction),
       switchMap(({ todoId }) => {
         return this.todoService.removeTodo(todoId).pipe(
           map(() => {
-            return removeTodoSuccessAction();
+            return TodoActions.removeTodoSuccessAction();
           }),
           catchError((e: Error) => {
             console.warn(e);
-            return of(removeTodoFailureAction());
+            return of(TodoActions.removeTodoFailureAction());
+          }),
+        );
+      }),
+    ),
+  );
+
+  checkTodo$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TodoActions.checkTodoAction),
+      switchMap(({ todoId }) => {
+        return this.todoService.checkTodo(todoId).pipe(
+          map(() => {
+            return TodoActions.checkTodoSuccessAction();
+          }),
+          catchError((e: Error) => {
+            console.warn(e);
+            return of(TodoActions.checkTodoFailureAction());
+          }),
+        );
+      }),
+    ),
+  );
+
+  uncheckTodo$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TodoActions.uncheckTodoAction),
+      switchMap(({ todoId }) => {
+        return this.todoService.uncheckTodo(todoId).pipe(
+          map(() => {
+            return TodoActions.uncheckTodoSuccessAction();
+          }),
+          catchError((e: Error) => {
+            console.warn(e);
+            return of(TodoActions.uncheckTodoFailureAction());
           }),
         );
       }),
@@ -53,14 +77,14 @@ export class TodoEffect {
 
   getTodo$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(getTodosAction),
+      ofType(TodoActions.getTodosAction),
       switchMap(() => {
         return this.todoService.getTodos().pipe(
           map((todos: TodoInterface[]) => {
-            return getTodosSuccessAction({ todos });
+            return TodoActions.getTodosSuccessAction({ todos });
           }),
           catchError(() => {
-            return of(getTodosFailureAction());
+            return of(TodoActions.getTodosFailureAction());
           }),
         );
       }),
@@ -69,9 +93,13 @@ export class TodoEffect {
 
   refreshTodos$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(addTodoSuccessAction, removeTodoSuccessAction),
+      ofType(
+        TodoActions.addTodoSuccessAction,
+        TodoActions.removeTodoSuccessAction,
+        TodoActions.checkTodoSuccessAction,
+      ),
       switchMap(() => {
-        return of(getTodosAction());
+        return of(TodoActions.getTodosAction());
       }),
     ),
   );
@@ -79,5 +107,5 @@ export class TodoEffect {
   constructor(
     private actions$: Actions,
     private todoService: TodoService,
-  ) {}
+  ) { }
 }

@@ -16,7 +16,14 @@
       @for (todo of todos$ | async; track todo.id) {
         <tr>
           <td>{{ todo.title }}</td>
-          <td><input class="form-check-input" type="checkbox" /></td>
+          <td>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              (input)="toggleTodo(todo)"
+              [checked]="todo.done === 1"
+            />
+          </td>
           <td>
             <button class="btn btn-danger" (click)="removeTodo(todo.id)">
               Remove

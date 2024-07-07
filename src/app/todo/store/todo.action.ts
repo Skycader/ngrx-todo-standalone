@@ -37,3 +37,25 @@ export const removeTodoSuccessAction = createAction(
 export const removeTodoFailureAction = createAction(
   TodoActionTypes.REMOVE_TODO_FAILURE,
 );
+
+export const checkTodoAction = createAction(
+  TodoActionTypes.CHECK_TODO,
+  props<{ todoId: number }>(),
+);
+export const checkTodoSuccessAction = createAction(
+  TodoActionTypes.CHECK_TODO_SUCCESS,
+);
+export const checkTodoFailureAction = createAction(
+  TodoActionTypes.CHECK_TODO_FAILURE,
+);
+
+export const uncheckTodoAction = createAction(
+  TodoActionTypes.UNCHECK_TODO,
+  props<{ todoId: number }>(),
+);
+export const uncheckTodoSuccessAction = createAction(
+  TodoActionTypes.UNCHECK_TODO_SUCCESS,
+);
+export const uncheckTodoFailureAction = createAction(
+  TodoActionTypes.UNCHECK_TODO_FAILURE,
+);

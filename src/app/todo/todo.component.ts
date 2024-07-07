@@ -7,8 +7,10 @@ import { selectTodos, todoFeatureKey, todoReducer } from './store/todo.reducer';
 import { AppStateInterface } from './models/app-state.model';
 import {
   addTodoAction,
+  checkTodoAction,
   getTodosAction,
   removeTodoAction,
+  uncheckTodoAction,
 } from './store/todo.action';
 import { Todo } from './models/todo.class';
 import { FormsModule } from '@angular/forms';
@@ -32,7 +34,7 @@ export class TodoComponent {
   constructor(
     private store: Store<AppStateInterface>,
     private themeService: ThemeService,
-  ) {}
+  ) { }
 
   public ngOnInit(): void {
     this.store.dispatch(getTodosAction());
@@ -40,6 +42,13 @@ export class TodoComponent {
   public addTodo() {
     this.store.dispatch(addTodoAction({ todo: new Todo(this.todoTitle) }));
     this.todoTitle = '';
+  }
+
+  public toggleTodo(todo: TodoInterface) {
+    if (todo.done === 0)
+      this.store.dispatch(checkTodoAction({ todoId: todo.id }));
+    if (todo.done === 1)
+      this.store.dispatch(uncheckTodoAction({ todoId: todo.id }));
   }
 
   public removeTodo(todoId: number) {
